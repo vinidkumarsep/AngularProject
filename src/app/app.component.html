@@ -9,9 +9,14 @@
                 </div>
                 <div class="col-lg-6 top-nav">
                     <nav>
+                        <ul class="nav nav-pills float-left">
+                            <li class="nav-item">
+                              <input [(ngModel)]="newData"  placeholder="Add New TODO" />
+                            </li>
+                        </ul>
                         <ul class="nav nav-pills float-right">
                             <li class="nav-item">
-                                <a class="nav-link active" >Add Todo </a>
+                                <button (click) = "pushItem()">AddNewTodo</button>
                             </li>
                         </ul>
                     </nav>
@@ -21,7 +26,7 @@
 
             <ul class="list-group list-group-flush todo-list">
                 <li class="list-group-item" *ngFor="let d of data">
-                  <span class="align-left" >{{ d.name }}</span>
+                  <span class="align-left" >{{ d }}</span>
                   
                   
                 </li>

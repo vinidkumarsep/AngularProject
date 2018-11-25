@@ -6,9 +6,6 @@ import { Injectable } from '@angular/core';
 export class DummyDataService {
 
   data=[
-    {id:1,name:'VinidKumar'},
-    {id:2,name:'Dayakar'},
-    {id:3,name:'LaxmanKumar'}
   ];
   constructor() { }
 
