@@ -1,8 +1,12 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-lg-12">
+      <div class="col-lg-2"> 
+
+      </div>
+        <div class="col-lg-8">
+          <br/>
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-3 top-nav">
                     <h3>
                         <a>TODOS APP</a>
                     </h3>
@@ -16,7 +20,7 @@
                         </ul>
                         <ul class="nav nav-pills float-right">
                             <li class="nav-item">
-                                <button (click) = "pushItem()">AddNewTodo</button>
+                                <button class="btn-primary" (click) = "pushItem()">AddNewTodo</button>
                             </li>
                         </ul>
                     </nav>
@@ -25,14 +29,31 @@
             <hr/>
 
             <ul class="list-group list-group-flush todo-list">
-                <li class="list-group-item" *ngFor="let d of data">
-                  <span class="align-left" >{{ d }}</span>
-                  
-                  
+                <li class="list-group-item" *ngFor="let d of data; let i =index">
+                  <span class="nav nav-pills float-left" *ngIf="!d.editible then valid;else notValid "> {{ d.name }}</span>
+                  <ng-template #valid>{{ d.name }}</ng-template>
+                  <ng-template #notValid><input (blur)="afterEdit(i)" [(ngModel)]="d.name"></ng-template>
+                  <span class="nav nav-pills float-right">
+                        <a href="#" (click)=deleteItem(i)>
+                                
+                                <span><img src="https://img.icons8.com/small/30/000000/close-window.png"></span>
+                              </a>
+                    <!-- <button (click)=deleteItem(i)>delete</button> -->
+                </span>
+                  <span class="nav nav-pills float-right">
+                        <a href="#" (click)=editItem(i)>
+                            <span>
+                        <img src="https://img.icons8.com/small/30/000000/pencil.png"></span>
+                    <!-- <button (click)=editItem(i)>Edit</button></span> -->
+                </a>
+                </span>
                 </li>
               </ul>
 
 
         </div>
+
+        <div class="col-lg-2">
+</div>
     </div>
 </div>

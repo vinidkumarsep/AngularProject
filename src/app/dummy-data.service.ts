@@ -5,8 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class DummyDataService {
 
-  data=[
-  ];
+  data=[];
   constructor() { }
 
   getData(){
